@@ -1,15 +1,7 @@
-// vite.config.js
-import { defineConfig } from 'vite'
-import reactPlugin from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react'
+import ssr from 'vite-plugin-ssr/plugin'
 
-export default defineConfig({
-  plugins: [
-    reactPlugin()
-  ],
-  build: {
-    outDir: 'dist/client',
-    rollupOptions: {
-      input: 'src/entry-client.jsx'
-    }
-  }
-})
+export default {
+  plugins: [react(), ssr()],
+  publicDir: 'public'
+}
