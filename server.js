@@ -8,6 +8,13 @@ import express from 'express'
 import serveStatic from 'serve-static';
 import compression from 'compression';
 
+import pkg from 'vite-plugin-ssr/server'
+const { createRequestHandler } = pkg
+
+const isProd = process.env.NODE_ENV === 'production'
+
+const server = express();
+
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -22,8 +29,9 @@ export async function createServer(
 ) {
   const resolve = (p) => path.resolve(__dirname, p)
 
-  const indexProd = fs.readFileSync(resolve('public/index.html'), 'utf-8')
-  
+  const indexPath = path.join(__dirname, 'public', 'index.html')
+  const indexProd = fs.readFileSync(indexPath, 'utf-8')
+
 
   const app = express()
 
@@ -65,7 +73,7 @@ export async function createServer(
       let template, render
       if (!isProd) {
         // always read fresh template in dev
-        template = fs.readFileSync(resolve('public/index.html'), 'utf-8')
+        template = fs.readFileSync(indexPath, 'utf-8')
         template = await vite.transformIndexHtml(url, template)
         render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
       } else {
@@ -95,6 +103,10 @@ export async function createServer(
   return { app, vite }
 }
 
+if (isProd) {
+  server.use(express.static('dist/client', { index: false }))
+}
+
 if (!isTest) {
   createServer().then(({ app }) =>
     app.listen(5173, () => {
@@ -102,4 +114,9 @@ if (!isTest) {
     }),
 
   )
+}
+
+export default async (req, res) => {
+  const requestHandler = createRequestHandler({ server, isProd })
+  return requestHandler(req, res)
 }
