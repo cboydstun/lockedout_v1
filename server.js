@@ -8,8 +8,12 @@ import express from 'express'
 import serveStatic from 'serve-static';
 import compression from 'compression';
 
-import pkg from 'vite-plugin-ssr/server'
-const { createRequestHandler } = pkg
+let createRequestHandler
+
+(async () => {
+  const pkg = await import('vite-plugin-ssr/server')
+  createRequestHandler = pkg.createRequestHandler
+})()
 
 const isProd = process.env.NODE_ENV === 'production'
 
