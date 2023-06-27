@@ -3,6 +3,11 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
 
+// server.js
+import serveStatic from 'serve-static';
+import compression from 'compression';
+
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const isTest = process.env.VITEST
@@ -49,12 +54,8 @@ export async function createServer(
     // use vite's connect instance as middleware
     app.use(vite.middlewares)
   } else {
-    app.use((await import('compression')).default())
-    app.use(
-      (await import('serve-static')).default(resolve('dist/client'), {
-        index: false,
-      }),
-    )
+    app.use(compression())
+    app.use(serveStatic(resolve('dist/client'), { index: false }))
   }
 
   app.use('*', async (req, res) => {
@@ -99,5 +100,6 @@ if (!isTest) {
     app.listen(5173, () => {
       console.log('http://localhost:5173')
     }),
+
   )
 }
