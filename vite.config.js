@@ -7,6 +7,9 @@ export default defineConfig({
     reactPlugin()
   ],
   build: {
-    outDir: 'dist/client'
+    outDir: 'dist/client',
+    rollupOptions: {
+      input: 'src/entry-client.jsx'
+    }
   }
 })

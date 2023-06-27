@@ -1,9 +1,10 @@
+// server.js
+
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
 
-// server.js
 import serveStatic from 'serve-static';
 import compression from 'compression';
 
@@ -21,9 +22,8 @@ export async function createServer(
 ) {
   const resolve = (p) => path.resolve(__dirname, p)
 
-  const indexProd = isProd
-    ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
-    : ''
+  const indexProd = fs.readFileSync(resolve('public/index.html'), 'utf-8')
+  
 
   const app = express()
 
@@ -65,7 +65,7 @@ export async function createServer(
       let template, render
       if (!isProd) {
         // always read fresh template in dev
-        template = fs.readFileSync(resolve('index.html'), 'utf-8')
+        template = fs.readFileSync(resolve('public/index.html'), 'utf-8')
         template = await vite.transformIndexHtml(url, template)
         render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
       } else {
