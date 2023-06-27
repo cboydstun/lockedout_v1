@@ -10,10 +10,16 @@ import compression from 'compression';
 
 let createRequestHandler
 
-(async () => {
-  const pkg = await import('vite-plugin-ssr/server')
-  createRequestHandler = pkg.createRequestHandler
-})()
+const init = async () => {
+  try {
+    const pkg = await import('vite-plugin-ssr/server')
+    createRequestHandler = pkg.createRequestHandler
+  } catch (err) {
+    console.error('Failed to import createRequestHandler:', err)
+  }
+}
+
+init()
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -121,6 +127,11 @@ if (!isTest) {
 }
 
 export default async (req, res) => {
+  if (!createRequestHandler) {
+    res.status(500).send('Failed to initialize createRequestHandler')
+    return
+  }
+
   const requestHandler = createRequestHandler({ server, isProd })
   return requestHandler(req, res)
 }
