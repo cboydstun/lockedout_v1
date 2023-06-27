@@ -8,6 +8,11 @@ import express from 'express'
 import serveStatic from 'serve-static';
 import compression from 'compression';
 
+import debug from 'debug'
+
+const log = debug('app:server')
+debug.enable('app:*')
+
 let createRequestHandler
 
 const init = async () => {
@@ -15,7 +20,7 @@ const init = async () => {
     const pkg = await import('vite-plugin-ssr/server')
     createRequestHandler = pkg.createRequestHandler
   } catch (err) {
-    console.error('Failed to import createRequestHandler:', err)
+    log('Failed to import createRequestHandler:', err)
   }
 }
 
@@ -128,6 +133,7 @@ if (!isTest) {
 
 export default async (req, res) => {
   if (!createRequestHandler) {
+    log('Failed to initialize createRequestHandler')
     res.status(500).send('Failed to initialize createRequestHandler')
     return
   }
