@@ -2,9 +2,6 @@ export { Page }
 
 import React, { useState } from 'react'
 
-import Navigation from '../../components/Navigation'
-import Footer from '../../components/Footer'
-
 import './index.page.css'
 
 function Hero() {
@@ -122,8 +119,6 @@ function Contact() {
 function Page(props) {
   return (
     <div className='home-page-component'>
-      <Navigation />
-
       <Hero />
 
       <About />
@@ -131,8 +126,6 @@ function Page(props) {
       <Services />
 
       <Contact />
-
-      <Footer />
     </div>
   )
 }
