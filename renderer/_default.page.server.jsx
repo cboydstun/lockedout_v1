@@ -31,8 +31,6 @@ async function render(pageContext) {
         <title>24 Hour Locksmith San Antonio TX | Affordable Emergency Services</title>
         <meta name="description" content="Are you locked out of your car or home? Our 24 hour locksmith San Antonio services are ready to assist. We also offer affordable and reliable key making and mobile locksmith services in San Antonio, TX.">
         <meta name="keywords" content="Locksmith San Antonio, Locksmith San Antonio TX, Cheap Locksmith San Antonio TX, Emergency Locksmith San Antonio, Car Locksmith San Antonio TX, 24 Hour Locksmith San Antonio, Key Maker San Antonio, Locksmith Near Me San Antonio, Mobile Locksmith San Antonio">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="canonical" href="https://www.sanantoniolockedout.com/"/>
 
         <link rel="manifest" href="site.webmanifest">

@@ -64,9 +64,18 @@ nav {
   margin-right: 20px;
 }
 
+/* Very Slim Devices – <320px. */
+@media screen and (max-width: 320px) {
+}
+
+/* Mobile devices – 320px — 480px. */
+@media screen and (max-width: 480px) {
+}
+
+/* iPads, Tablets – 481px — 768px. */
 @media screen and (max-width: 768px) {
   .logo-container a {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .nav-menu {
@@ -83,7 +92,6 @@ nav {
     min-width: 200px;
     width: 40%;
     padding: 10px 0;
-    border-radius: 0 0 0 20px;
   }
 
   .nav-icon {
@@ -92,4 +100,16 @@ nav {
     top: 15px; /* Adjust top position */
     right: 20px; /* Add right position */
   }
+}
+
+/* Small screens, laptops – 769px — 1024px. */
+@media screen and (max-width: 1024px) {
+}
+
+/* Desktops, large screens – 1025px — 1200px. */
+@media screen and (max-width: 1200px) {
+}
+
+/* Extra large screens, TV – 1201px, and more. */
+@media screen and (min-width: 1201px) {
 }

@@ -1,180 +1,241 @@
-.App {
+.homepage-component {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
-.hero {
-  background: url("https://media.giphy.com/media/OTnDHCCFNZHwc/giphy.gif")
-    no-repeat center center/cover;
-  height: 80vh;
+.hero-component {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #000;
+  text-align: center;
   color: white;
 }
 
 .hero-content {
-  text-align: center;
+  max-width: 80%;
 }
 
 .hero-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.hero-subtitle {
+  font-size: 1.5em;
+  margin-bottom: 1em;
 }
 
 .hero-description {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 1em;
+  margin-bottom: 2em;
 }
 
-.hero-btn {
-  padding: 1rem 2rem;
-  font-size: 1.25rem;
-  color: white;
-  background-color: #333;
+.contact-btn,
+.call-btn {
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1em;
+  color: #000; /** or any color for better contrast with button background color */
+  background-color: #f4f4f4; /** use better appealing color */
+  margin: 0.5em;
 }
 
-.hero-btn:hover {
-  background-color: #666;
+.call-btn {
+  background-color: #f4f4f4;
+}
+
+.contact-btn a,
+.call-btn a {
+  color: #000; /** or any color for better contrast with button background color */
+  text-decoration: none;
+}
+
+.contact-btn:hover,
+.call-btn:hover {
+  background-color: yellow;
+  color: #000; /** or any color for better contrast with button background color */
+}
+
+.contact-btn:hover a,
+.call-btn:hover a {
+  color: #000; /** or any color for better contrast with button background color */
 }
 
 .about-component {
-  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  max-width: 80%;
 }
 
-.about {
-  width: 60%;
-  padding: 2rem;
-  color: #333;
-  margin: 2rem 0;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+.about-component h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
 }
 
-.about h2 {
-  font-size: 2.5rem;
-  color: #333;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.about p {
-  font-size: 1.25rem;
-  line-height: 1.6;
-  color: #666;
-  margin-bottom: 1rem;
+.about-component p {
+  font-size: 1em;
+  margin-bottom: 2em;
 }
 
 .services-component {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 100%;
+  justify-content: center;
+  max-width: 80%;
 }
 
-.services {
-  padding: 2rem;
-  background-color: #f7f7f7;
-  color: #333;
-  margin: 2rem 0;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.services h2 {
-  font-size: 2.5rem;
-  color: #333;
-  text-align: center;
-  margin-bottom: 1rem;
+.services-component h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
 }
 
 .service-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 2rem;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .service-item {
-  background-color: #fff;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid #000;
+  text-align: center;
 }
 
 .service-item h3 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 0.5rem;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 .service-item p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #666;
+  font-size: 1em;
+  margin-bottom: 1em;
 }
 
 .contact-component {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 80%;
+  margin-bottom: 2em;
+  background-color: #f4f4f4;
+  padding: 2em;
+}
+
+.contact-component h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.contact-component p {
+  font-size: 1em;
+  margin-bottom: 2em;
 }
 
 .contact-form {
-  padding: 2rem;
-  background-color: #f7f7f7;
-  color: #333;
-  margin: 2rem 0;
-  width: 80%;
-  max-width: 800px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form h2 {
-  font-size: 2.5rem;
-  color: #333;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  padding: 2em;
 }
 
-.form-group label {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 1em;
 }
 
-.form-group input,
-.form-group select {
-  padding: 0.5rem;
-  font-size: 1.25rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.contact-form input[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.contact-form label {
+  font-size: 1em;
+  margin-bottom: 0.5em;
 }
 
 .contact-form button {
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  color: white;
-  background-color: #333;
+  background-color: #000;
+  color: #fff;
+  padding: 12px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-top: 1em;
 }
 
-.contact-form button:hover {
-  background-color: #666;
+/* Very Slim Devices – <320px. */
+@media screen and (max-width: 320px) {
+}
+
+/* Mobile devices – 320px — 480px. */
+@media screen and (max-width: 480px) {
+}
+
+/* iPads, Tablets – 481px — 768px. */
+@media only screen and (max-width: 768px) {
+  .hero-component {
+    height: auto;
+    padding: 5%;
+  }
+
+  .hero-title {
+    font-size: 1.5em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em;
+  }
+
+  .hero-description {
+    font-size: 0.9em;
+  }
+
+  .contact-btn,
+  .call-btn {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+}
+
+/* Small screens, laptops – 769px — 1024px. */
+@media screen and (max-width: 1024px) {
+}
+
+/* Desktops, large screens – 1025px — 1200px. */
+@media screen and (max-width: 1200px) {
+}
+
+/* Extra large screens, TV – 1201px, and more. */
+@media screen and (min-width: 1201px) {
 }

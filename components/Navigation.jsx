@@ -13,29 +13,24 @@ export default function Navigation(props) {
             <div className='navigation-container'>
                 <div className='logo-container'>
                     <a href='/'>
-                        <span role="img" aria-label="Lock Emoji" className='logo'>&#128274;</span> Locked Out San Antonio
+                        <span role="img" aria-label="Lock Emoji" className='logo'>&#128274;</span> San Antonio Locked Out
                     </a>
                 </div>
 
                 <nav>
                     <ul className={`nav-menu ${mobileMenuOpen ? 'nav-menu-mobile' : ''}`}>
                         <li>
-                            <a className="navitem" href="/">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a className="navitem" href="/#about-component">
+                            <a className="navitem" href="/#about">
                                 About
                             </a>
                         </li>
                         <li>
-                            <a className="navitem" href="/#services-component">
+                            <a className="navitem" href="/#services">
                                 Services
                             </a>
                         </li>
                         <li>
-                            <a className="navitem" href="/#contact-component">
+                            <a className="navitem" href="/#contact">
                                 Contact
                             </a>
                         </li>
